@@ -1,11 +1,7 @@
 
-Instalado!
+# Práctica de BackEnd
 
-# NodePop
-
-[Demo](/anuncios) of the methods (this link works only if you run the project)
-
-Api for the iOS/Android apps.
+[Demo](/anuncios)  <- Click here for Demo
 
 ## Deploy
 
@@ -39,21 +35,54 @@ To start in development mode:
 
     npm run dev (including nodemon & debug log)
 
-## Test
-
-    npm test (pending to create, the client specified not to do now)
-
-## JSHint & JSCS
-
-    npm run hints
 
 ## API v1 info
 
 
-### Base Path
+#### Base Path
 
 The API can be used with the path:
 [API V1](/apiv1/anuncios)
+
+## Json Web Token Security for API
+### POST  /apiv1/loginJWT
+
+  **Obtain a JWToken**
+
+  use POSTMAN to send user and password. The default dummy example is 
+  **user:** user@example.com
+  **password:** 1234
+
+    {
+    "tokenJWT": "eyJhbGciOiJIUzI1NiIsInR
+    5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmE3ZWNjMTBjY2RlZjM2NzgwY
+    jBlYWYiLCJpYXQiOjE2MDQ4NDM2MDEsImV
+    4cCI6MTYwNTAxNjQwMX0.fqiSKqvUftdRgjFY9H
+    C6PYLCFvqUrKCb_ApdYjV-Mqg"
+}
+
+### GET  /apiv1/anuncios
+
+**API access trough POSTMAN using the key='Authorization' value=JWToken**
+
+{
+  "_id": "5fa83cddc8c7d8430c664eca",
+  "nombre": "Bicicleta",
+  "venta": true,
+  "precio": 23015,
+  "foto": "\\images\\anuncios\\bici.jpg",
+  "__v": 0,
+  "tags": [
+      "lifestyle",
+      "motor"
+}
+
+
+### Languages EN/ES:
+
+i18n Selector to change language. To add to .ejs use "__" 
+
+**<%= __('Example') %>**
 
 ### Error example
 
@@ -120,14 +149,3 @@ Return the list of available tags for the resource anuncios.
       ]
     }
 
-## POST  /apiv1/loginJWT
-
-  Obtain a JWToken
-
-    {
-    "tokenJWT": "eyJhbGciOiJIUzI1NiIsInR
-    5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmE3ZWNjMTBjY2RlZjM2NzgwY
-    jBlYWYiLCJpYXQiOjE2MDQ4NDM2MDEsImV
-    4cCI6MTYwNTAxNjQwMX0.fqiSKqvUftdRgjFY9H
-    C6PYLCFvqUrKCb_ApdYjV-Mqg"
-}

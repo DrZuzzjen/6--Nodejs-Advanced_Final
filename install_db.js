@@ -14,7 +14,7 @@ const Anuncio = require('./models/Anuncio');
 
 db.once('open', async function () {
   try {
-    const answer = await askUser('Are you sure you want to empty DB? (no) ');
+    const answer = await askUser('Are you sure you want to empty DB? (no/yes) ');
     if (answer.toLowerCase() === 'yes') {
       
       // Inicializar nuestros modelos
