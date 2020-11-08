@@ -111,3 +111,15 @@ Return the list of available tags for the resource anuncios.
         "mobile"
       ]
     }
+
+## POST  /apiv1/loginJWT
+
+  Obtain a JWToken
+
+    {
+    "tokenJWT": "eyJhbGciOiJIUzI1NiIsInR
+    5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmE3ZWNjMTBjY2RlZjM2NzgwY
+    jBlYWYiLCJpYXQiOjE2MDQ4NDM2MDEsImV
+    4cCI6MTYwNTAxNjQwMX0.fqiSKqvUftdRgjFY9H
+    C6PYLCFvqUrKCb_ApdYjV-Mqg"
+}
