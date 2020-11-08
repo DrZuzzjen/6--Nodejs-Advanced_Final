@@ -21,6 +21,14 @@ Review lib/connectMongoose.js to set database configuration
 
     npm run installDB
 
+## Configure environment variables
+
+Copy .env.example to .env and review the settings.
+
+```sh
+cp .env.example .env
+```
+
 ## Start
 
 To start a single instance:

@@ -3,14 +3,21 @@
 <div class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header"><a href="/" class="navbar-brand">Nodeapi</a></div>
+    <div>
+      <h5><%= __('Language') %> </h5>
+      <% getLocales().forEach( locale => { %>
+        <a href="/change-locale/<%= locale %>"><%= locale %></a>&nbsp;
+        <!-- /change-locale va a poner una cookie de forzar idioma y luego recragará la página -->
+      <% }) %>
+    </div>
   </div>
 </div>
 
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h1>Lista de anuncios</h1>
-      <p class="lead">Listando: <%= anuncios.length %> de <%= total %></p>
+      <h1><%= __('Advertising List') %></h1>
+      <p class="lead"><%= __('Listing: ') %><%= anuncios.length %> <%= __('out of') %> <%= total %> </p>
     </div>
   </div>
 
@@ -18,41 +25,42 @@
     <div class="col-md-12">
       <table class="table table-hover">
         <thead><tr>
-          <th>Nombre</th>
-          <th>Venta</th>
-          <th style="text-align: right">Precio</th>
-          <th>Foto</th>
-          <th>Tags</th>
+          <th><%= __('Name') %> </th>
+          <th><%= __('On sale') %></th>
+          <th style="text-align: right"><%= __('Cost') %> </th>
+          <th><%= __('Photo') %> </th>
+          <th><%= __('Tags') %> </th>
           <th>#</th>
         </tr></thead>
         <tbody>
 <% anuncios.forEach(anuncio => { %>
           <tr>
             <td><%= anuncio.nombre %></td>
-            <td><%= anuncio.venta ? 'Si' : 'No' %></td>
+            <td><%= anuncio.venta ? __('Yes') : __('No') %></td>
             <td style="text-align: right"><%= anuncio.precio / 100 %>€</td>
             <td><img src="<%= anuncio.foto %>"></td>
             <td><%= anuncio.tags %></td>
             <td><%= anuncio._id %></td>
+            
           </tr>
 <% }) %>
         </tbody>
       </table>
 
-      <p>Ejemplos:</p>
+      <p><%= __('Examples') %> </p>
 
       <ul>
-        <li><a href="?">Todos (max. 1000)</a></li>
+        <li><a href="?"><%= __('All') %>  <%= __('(Max. 100)') %> </a></li>
         <li><a href="?start=2&limit=2">Paginado</a></li>
-        <li><a href="?sort=precio">Ordenado por precio ascendente</a></li>
-        <li><a href="?sort=-precio">Ordenado por precio descendente</a></li>
-        <li><a href="?tag=mobile">Con tag mobile</a></li>
+        <li><a href="?sort=precio"><%= __('Cost - Ascendent Order') %> </a></li>
+        <li><a href="?sort=-precio"><%= __('Cost - Descendent Order') %> </a></li>
+        <li><a href="?tag=mobile"><%= __('With mobile tag') %> </a></li>
       </ul>
 
     </div>
   </div>
 
-  <a href="/">Volver a la home</a>
+  <a href="/"><%= __(' <<-- Back Home') %> </a>
 
 </div>
 <% include _footer %>
